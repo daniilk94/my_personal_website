@@ -1,0 +1,182 @@
+html{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+header{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #020307;
+  height: 100px;
+}
+
+#bannerimage{
+  width: 80%;
+  height: auto;
+}
+
+h1{
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  padding-left: 40px;
+  user-select: none;
+}
+
+.header-ref-ul-list{
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+  gap: 50px;
+  padding-right: 40px;
+  user-select: none;
+}
+
+.header-refs{
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: none;
+}
+body{
+  margin: 0;
+  text-align: center;
+  background: #bee0a3;
+}
+
+
+h2{
+  color: black;
+  font-size: 32px;
+  user-select: none;
+}
+
+#main-section{
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#project-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
+  padding: 40px;
+}
+
+.project-img{
+  display: block;
+  width: 100%;
+  height: 300px;
+  border: dashed 5px rgb(102, 48, 3);
+  border-radius: 40px;
+  transition: 0.5s;
+  user-select: none;
+}
+
+label{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  user-select: none;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.project-img:hover{
+  filter: brightness(1.2);
+  transform: scale(1.05);
+}
+
+#app-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  background: white;
+  overflow: hidden;
+  display: none;
+  z-index: 10;
+}
+
+#app-container.open{
+  display: block;
+  animation: zoomIn 0.7s ease forwards;
+}
+
+#app-frame{
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  border:none;
+}
+
+#close-btn{
+  position: absolute;
+  right: 0;
+  font-size: 64px;
+  color: rgb(0, 0, 0);
+  size: 64px;
+  border-style:solid;
+  border-width: 4px;
+  border-color: black;
+  border-radius: 40px;
+  width: 7%;
+}
+
+#close-btn:hover{
+  cursor: pointer;
+}
+
+.socialmedia-ul-list{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  gap: 50px;
+  user-select: none;
+}
+
+.socialmedia-icons{
+  border-style: solid;
+  border-radius: 30%;
+  border-color: white;
+  border-width: 2px;
+  width: 50px;
+  user-select: none;
+}
+
+footer{
+  margin: 0;
+}
+
+@media (max-width: 750px){
+  #project-grid{
+    grid-template-columns: repeat(1, 1fr);
+    }
+  .header-refs{
+    font-size: 26px;
+  }
+}
+@media (max-width: 450px){
+  #project-grid{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .header-refs{
+    font-size: 18px;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.2);
+      opacity: 0;
+  }
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+}

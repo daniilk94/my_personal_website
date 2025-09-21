@@ -1,0 +1,165 @@
+body{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background: #bee0a3;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number]{
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+#calculator-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  width: 300px;
+  height: 60%;
+  padding: 20px;
+  gap: 20px;  
+  border: 10px solid black;
+  border-radius: 18%;
+  background-color: rgb(82, 144, 224);
+}
+
+
+#chooseMode{
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  font-weight:bolder;
+  user-select: none;
+}
+
+input[type=radio]{
+  width: 18px;
+  height: 18px;
+  accent-color: rgb(0, 0, 0);
+}
+
+#display{
+  width: 100%;
+  height: 70px;
+  border-style: solid 3px rgb(82, 78, 78);
+  border-radius: 25px;
+  text-align: right;
+  font-size: 50px;
+}
+
+#basicMode-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.basic-input-container{
+  padding: 15%;
+  user-select: none;
+}
+
+#inputNumberA, #inputNumberB, #inputSideA, #inputSideB{
+  width: 100%;
+  height: 40px;
+  border-style: solid 4px rgb(0, 0, 0);
+  border-radius: 15px;
+  text-align: right;
+  font-size: 32px;
+}
+
+.basic-input-container label{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2em;
+  font-size: 26px;
+  font-weight: 300;
+  margin-top: 19px;
+}
+
+
+#buttons-basic-container{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+}
+
+#advancedMode-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.button{
+  width: 100%;
+  aspect-ratio: 1/1;
+  border: solid 2px black;
+  border-radius: 30px;
+  font-size: 36px;
+  font-weight: lighter;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button-num{
+  background-color: white;
+}
+.button-operator, #buttonPow2, #buttonSqrt{
+  background-color: rgb(211, 206, 206);
+}
+.button-clear{
+  background-color: rgb(207, 63, 63);
+  color:white;
+}
+.button-result{
+  background-color: rgb(57, 218, 57);
+  color: white;
+}
+.button-hypo{
+  width: 60%;
+  height: 60px;
+  font-size: 18px;
+  margin: 0;
+}
+.button:hover{
+  scale: 1.05;
+  filter: brightness(0.85);
+}
+
+.pyth-input-container{
+  padding: 15%;
+  user-select: none;
+}
+
+.pyth-input-container label{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+#explanation{
+  font-size: 18px;
+  height: 49px;
+  user-select: none;
+  font-weight: bold;
+}
+
+#pyth-bottom{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
