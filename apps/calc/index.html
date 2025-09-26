@@ -10,11 +10,7 @@
   <div id="calculator-flex">
     <div id="chooseMode">
       <label>
-        <input type="radio" name="mode" value="basic" checked>
-        Basic
-      </label>
-      <label>
-        <input type="radio" name="mode" value="advanced">
+        <input type="radio" name="mode" value="advanced" checked>
         Advanced
       </label>
       <label>
@@ -22,27 +18,7 @@
         Pyth
       </label>
     </div>
-    <input id="display" type="">
-    <template id="basicMode-template">
-      <div id="basicMode-container">
-        <div class="basic-input-container">
-          <label>
-            Number A:
-            <input id="inputNumberA" type="number">            
-          </label>
-          <label>
-            Number B:
-            <input id="inputNumberB" type="number">            
-          </label>
-        </div>
-        <div id="buttons-basic-container">
-          <button value="sum" class="button">+</button>
-          <button value="subtr" class="button">-</button>
-          <button value="mult" class="button">&times;</button>
-          <button value="div" class="button">&#247;</button>
-        </div>
-      </div>
-    </template>
+    <input id="display" type="" readonly="true">
     <template id="advancedMode-template">
       <div id="advancedMode-container">
         <button class="button button-clear" value="C">C</button>

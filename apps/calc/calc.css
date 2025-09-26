@@ -22,12 +22,11 @@ input[type=number]{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
-  width: 300px;
-  height: 60%;
+  margin-top: 5%;
+  width: 330px;
   padding: 20px;
   gap: 20px;  
-  border: 10px solid black;
+  border: 5px solid black;
   border-radius: 18%;
   background-color: rgb(82, 144, 224);
 }
@@ -55,44 +54,14 @@ input[type=radio]{
   font-size: 50px;
 }
 
-#basicMode-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  gap: 20px;
-}
 
-.basic-input-container{
-  padding: 15%;
-  user-select: none;
-}
-
-#inputNumberA, #inputNumberB, #inputSideA, #inputSideB{
+#inputSideA, #inputSideB{
   width: 100%;
   height: 40px;
   border-style: solid 4px rgb(0, 0, 0);
   border-radius: 15px;
   text-align: right;
   font-size: 32px;
-}
-
-.basic-input-container label{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.2em;
-  font-size: 26px;
-  font-weight: 300;
-  margin-top: 19px;
-}
-
-
-#buttons-basic-container{
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-
 }
 
 #advancedMode-container{
@@ -103,7 +72,6 @@ input[type=radio]{
 }
 
 .button{
-  width: 100%;
   aspect-ratio: 1/1;
   border: solid 2px black;
   border-radius: 30px;
