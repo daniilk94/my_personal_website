@@ -52,7 +52,7 @@ function advancedModeScript(){
         display.value="";
       }
       else if(button.classList.contains("button-result")){
-        if(eval(display.value) == "Infinity"){
+        if(eval(display.value) == "Infinity" || eval(display.value) == "-Infinity"){
           display.value = "Division by 0!"
         }
         else{
