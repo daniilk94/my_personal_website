@@ -1,67 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="stylesheet" href="calc.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
-</head>
-<body>
-  <div id="calculator-flex">
-    <div id="chooseMode">
-      <label>
-        <input type="radio" name="mode" value="advanced" checked>
-        Advanced
-      </label>
-      <label>
-        <input type="radio" name="mode" value="pyth">
-        Pyth
-      </label>
+  <head>
+    <link rel="stylesheet" href="calc.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div id="calculator-flex">
+      <div id="chooseMode">
+        <label>
+          <input
+            type="radio"
+            name="mode"
+            value="advancedMode-template"
+            checked
+          />
+          Advanced
+        </label>
+        <label>
+          <input type="radio" name="mode" value="pythMode-template" />
+          Pyth
+        </label>
+      </div>
+      <input id="display" type="text" maxlength="3" readonly="true" />
+      <template id="advancedMode-template">
+        <div id="advancedMode-container">
+          <button class="button button-clear" value="C">C</button>
+          <button id="buttonPow2" class="button" value="pow2">x&sup2;</button>
+          <button id="buttonSqrt" class="button" value="sqrt">&radic;</button>
+          <button class="button button-operator" value="+">+</button>
+          <button class="button button-num" value="7">7</button>
+          <button class="button button-num" value="8">8</button>
+          <button class="button button-num" value="9">9</button>
+          <button class="button button-operator" value="-">&#8722;</button>
+          <button class="button button-num" value="4">4</button>
+          <button class="button button-num" value="5">5</button>
+          <button class="button button-num" value="6">6</button>
+          <button class="button button-operator" value="*">&times;</button>
+          <button class="button button-num" value="1">1</button>
+          <button class="button button-num" value="2">2</button>
+          <button class="button button-num" value="3">3</button>
+          <button class="button button-operator" value="/">&#247;</button>
+          <button id="button-back" class="button">&#9003;</button>
+          <button class="button button-num" value="0">0</button>
+          <button class="button button-num" value=".">.</button>
+          <button class="button button-result" value="=">=</button>
+        </div>
+      </template>
+      <template id="pythMode-template">
+        <div id="pythMode-container">
+          <div class="pyth-input-container">
+            <label>
+              Side A (cm):
+              <input id="inputSideA" type="number" />
+            </label>
+            <label>
+              Side B (cm):
+              <input id="inputSideB" type="number" />
+            </label>
+          </div>
+          <div id="bottom-pyth">
+            <button class="button button-hypo">Calculate hypotenuse</button>
+            <p id="explanation"></p>
+          </div>
+        </div>
+      </template>
     </div>
-    <input id="display" type="" readonly="true">
-    <template id="advancedMode-template">
-      <div id="advancedMode-container">
-        <button class="button button-clear" value="C">C</button>
-        <button id="buttonPow2" class="button" value="pow2">x&sup2;</button>
-        <button id="buttonSqrt" class="button" value="sqrt">&radic;</button>
-        <button class="button button-operator" value="+">+</button>
-        <button class="button button-num" value="7">7</button>
-        <button class="button button-num" value="8">8</button>
-        <button class="button button-num" value="9">9</button>
-        <button class="button button-operator" value="-">&#8722;</button>
-        <button class="button button-num" value="4">4</button>
-        <button class="button button-num" value="5">5</button>
-        <button class="button button-num" value="6">6</button>
-        <button class="button button-operator" value="*">&times;</button>
-        <button class="button button-num" value="1">1</button>
-        <button class="button button-num" value="2">2</button>
-        <button class="button button-num" value="3">3</button>
-        <button class="button button-operator" value="/">&#247;</button>
-        <button id="button-back" class="button">&#9003;</button>
-        <button class="button button-num" value="0">0</button>
-        <button class="button button-num" value=".">.</button>
-        <button class="button button-result" value="=">=</button>
-      </div>
-    </template>
-    <template id="pythMode-template">
-      <div id="pythMode-container">
-        <div class="pyth-input-container">
-          <label>
-            Side A (cm):
-            <input id="inputSideA" type="number">            
-          </label>
-          <label>
-            Side B (cm):
-            <input id="inputSideB" type="number">            
-          </label>
-        </div>
-        <div id="bottom-pyth">
-          <button class="button button-hypo">Calculate hypotenuse</button>
-          <p id="explanation"></p>
-        </div>
-      </div>
-    </template>
-  </div>
-  <script src="calc.js"></script>
-</body>
+    <script src="calc.js"></script>
+  </body>
 </html>
