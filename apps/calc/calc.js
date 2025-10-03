@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 //switching mode with radioButton
 modeSelector.addEventListener("change", function (e) {
-  setDisplayValue("");
+  display.value = "";
   const currentMode = mainContainer.querySelector(
     "#advancedMode-container, #pythMode-container"
   );
@@ -29,18 +29,24 @@ function switchMode(template) {
   }
 }
 
-function setDisplayValue(value) {
-  const strValue = String(value);
-  const maxDisplayLength = 9;
-  if (strValue.length > maxDisplayLength) {
-    display.value = strValue.slice(0, maxDisplayLength);
+function formatNumber(number) {
+  if (Number.isInteger(number)) {
+    if (Math.abs(number) < 1e9) {
+      return number;
+    } else {
+      return number.toExponential(3);
+    }
   } else {
-    display.value = strValue;
+    return number.toPrecision(6);
   }
 }
 
 function hypotenuse(a, b) {
-  return Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+  const hypo = formatNumber(Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)));
+  if (hypo > 1e30) {
+    return "Infinity";
+  }
+  return hypo;
 }
 
 //AdvancedMode
@@ -52,28 +58,28 @@ function advancedModeScript() {
 
     button.addEventListener("click", function () {
       if (
-        (button.classList.contains("button-num") ||
-          button.classList.contains("button-operator")) &&
-        display.value.length < 12
+        button.classList.contains("button-num") ||
+        button.classList.contains("button-operator")
       ) {
         display.value += button.value;
+        display.scrollLeft = display.scrollWidth;
       } else if (button.classList.contains("button-clear")) {
-        setDisplayValue("");
+        display.value = "";
       } else if (button.classList.contains("button-result")) {
         if (
           eval(display.value) == "Infinity" ||
           eval(display.value) == "-Infinity"
         ) {
-          setDisplayValue("Error!");
+          display.value = "Error!";
         } else {
-          setDisplayValue(eval(display.value));
+          display.value = formatNumber(eval(display.value));
         }
       } else if (button.id == "buttonPow2") {
-        setDisplayValue(eval(Math.pow(display.value, 2)));
+        display.value = formatNumber(eval(Math.pow(display.value, 2)));
       } else if (button.id == "buttonSqrt") {
-        setDisplayValue(eval(Math.sqrt(display.value)));
+        display.value = formatNumber(eval(Math.sqrt(display.value)));
       } else if (button.id == "button-back") {
-        setDisplayValue(display.value.slice(0, -1));
+        display.value = display.value.slice(0, -1);
       }
     });
   }
@@ -90,18 +96,23 @@ function pythModeScript() {
     const valueA = Number(document.getElementById("inputSideA").value);
     const valueB = Number(document.getElementById("inputSideB").value);
     if (valueA <= 0 || valueB <= 0) {
-      setDisplayValue("Error!");
+      display.value = "Error!";
     } else {
-      setDisplayValue(hypotenuse(valueA, valueB));
-      explanation.innerHTML =
-        valueA +
-        "&sup2; + " +
-        valueB +
-        "&sup2; = " +
-        (Math.pow(valueA, 2) + Math.pow(valueB, 2)) +
-        ". &radic;" +
-        (Math.pow(valueA, 2) + Math.pow(valueB, 2)) +
-        " is the hypotenuse's length.";
+      display.value = hypotenuse(valueA, valueB);
+      if (display.value === "Infinity") {
+        explanation.innerHTML =
+          "The is nothing in universe you could measure with such inputs";
+      } else {
+        explanation.innerHTML =
+          valueA +
+          "&sup2; + " +
+          valueB +
+          "&sup2; = " +
+          (Math.pow(valueA, 2) + Math.pow(valueB, 2)) +
+          ". &radic;" +
+          (Math.pow(valueA, 2) + Math.pow(valueB, 2)) +
+          " is the hypotenuse's length.";
+      }
     }
   });
 }
