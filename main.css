@@ -112,18 +112,20 @@ label {
 }
 
 #close-btn {
+  position: absolute;
+  right: 0;
+  width: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  right: 0;
   font-size: 64px;
   color: rgb(0, 0, 0);
-  border-style: solid;
-  border-width: 4px;
-  border-color: black;
+  border: 4px solid black;
   border-radius: 100%;
-  width: 8%;
+}
+
+#close-btn-div {
+  margin-bottom: 5%;
 }
 
 #close-btn:hover {

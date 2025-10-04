@@ -63,8 +63,8 @@ function animate() {
   swapChildren(indicies, visualizer);
   currentIndex++;
 
-  playNote(100 + indicies[0] * 250);
-  playNote(100 + indicies[1] * 250);
+  playNote(50 + indicies[0] * 150);
+  playNote(50 + indicies[1] * 150);
 
   const delay = Number(speedBar.max) - Number(speedBar.value);
   timeout = setTimeout(animate, delay);
