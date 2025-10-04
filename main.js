@@ -7,7 +7,7 @@ const closeBtn = document.getElementById("close-btn");
 for (let i = 0; i < projectImages.length; i++) {
   let img = projectImages[i];
   img.addEventListener("click", function () {
-    frame.src = img.dataset.src;
+    frame.data = img.dataset.src;
     container.classList.add("open");
     mainSecHeading.innerHTML = img.alt;
   });
@@ -15,7 +15,7 @@ for (let i = 0; i < projectImages.length; i++) {
 
 function closeFrame() {
   container.classList.remove("open");
-  frame.src = "";
+  frame.data = "";
   mainSecHeading.innerHTML = "Interactive Apps";
 }
 
