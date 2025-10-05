@@ -4,45 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="sv.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/7104c315a4.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Sorting Visualizer</title>
   </head>
   <body>
     <div id="main-container">
       <div id="visualizer"></div>
       <div id="settings">
-        <div id="button-div">
-          <button id="play-button">&#9658;</button>
-          <button id="reload-button">&#8634;</button>
-        </div>
-        <div id="comboBox-settings">
-          <label>
-            Sorting type:
-            <select id="sorting-type">
-              <option value="bubble-sort">Bubble Sort</option>
-              <option value="insertion-sort">Insertion Sort</option>
-            </select>
-          </label>
-          <label>
-            Basic bars:
-            <select id="basic-bar-color">
-              <option value="black">Black</option>
-              <option value="red">Red</option>
-              <option value="blue">Blue</option>
-              <option value="purple">Purple</option>
-              <option value="gray">Gray</option>
-            </select>
-          </label>
-          <label
-            >Swapping bars:
-            <select id="swapping-bar-color">
-              <option value="red">Red</option>
-              <option value="white">White</option>
-              <option value="yellow">Yellow</option>
-              <option value="pink">Pink</option>
-              <option value="black">Black</option>
-            </select>
-          </label>
-        </div>
         <label
           >Speed:
           <input
@@ -54,8 +29,30 @@
             max="500"
           />
         </label>
+        <div id="control-div">
+          <select id="sorting-type">
+            <option value="bubble-sort">Bubble Sort</option>
+            <option value="insertion-sort">Insertion Sort</option>
+          </select>
+          <label>
+            Main bars:
+            <button id="basic-bar-color"></button>
+          </label>
+          <button id="play-button" class="button control">&#9658;</button>
+          <button id="reload-button" class="button control">&#8634;</button>
+          <label
+            >Swap bars:
+            <button id="swapping-bar-color"></button>
+          </label>
+          <label>
+            <button id="mute-button" class="button mute">
+              <i class="fas fa-volume-mute"></i>
+            </button>
+          </label>
+        </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
     <script src="sv.js"></script>
   </body>
 </html>

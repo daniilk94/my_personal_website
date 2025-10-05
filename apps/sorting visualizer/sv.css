@@ -11,6 +11,8 @@ body {
   align-items: center;
 }
 #visualizer {
+  border: 0px solid black;
+  border-radius: 10px;
   height: 250px;
   width: 100%;
   display: flex;
@@ -37,38 +39,58 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 15px;
-}
-
-#comboBox-settings {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
 #settings label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 200px;
+  width: 100px;
 }
 
-select {
-  width: 110px;
+#sorting-type {
+  width: 150px;
+  padding: 6px 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: white;
+  font-size: 16px;
+  cursor: pointer;
   text-align: center;
 }
 
-#button-div {
+#sorting-type:hover {
+  border-color: rgb(236, 177, 13);
+}
+
+#sorting-type:focus {
+  border-color: rgb(236, 177, 13);
+}
+
+#control-div {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 20px;
 }
 
-button {
-  width: 50px;
+.button {
+  width: 55px;
   height: 50px;
   font-size: 32px;
   color: white;
+  cursor: pointer;
+}
+
+.mute {
+  color: black;
+  background-color: transparent;
+  border: 0px;
+}
+.mute:hover {
+  border: 2px solid black;
 }
 
 button:hover {
@@ -80,4 +102,15 @@ button:hover {
 }
 #reload-button {
   background-color: rgb(202, 134, 7);
+}
+
+.pcr-button {
+  width: 25px !important;
+  height: 60px !important;
+  border: 2px solid rgb(255, 255, 255) !important;
+  cursor: pointer;
+}
+
+#speed-bar {
+  width: 500px;
 }
