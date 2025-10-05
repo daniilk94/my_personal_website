@@ -151,6 +151,9 @@ label {
 footer {
   margin: 0;
 }
+i {
+  color: rgb(0, 0, 0);
+}
 
 @media (max-width: 750px) {
   #project-grid {

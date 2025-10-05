@@ -9,7 +9,6 @@ let array = generateRandomArray(40);
 let swaps = [];
 let muteSound = true;
 let isPlaying = false;
-let isPaused = false;
 let currentIndex = 0;
 let timeout = null;
 let audioCtx = null;
@@ -51,25 +50,27 @@ const swapPickr = Pickr.create({
   },
 });
 
+function updateBarColor() {
+  const bars = visualizer.children;
+  for (const bar of bars) {
+    if (bar.dataset.isSwapping === "true") {
+      bar.style.backgroundColor = swapBarColor;
+    } else {
+      bar.style.backgroundColor = basicBarColor;
+    }
+  }
+}
+
 basicPickr.on("change", function (color) {
   basicBarColor = color.toHEXA().toString();
   basicPickr.applyColor();
-  const bars = visualizer.children;
-  for (const bar of bars) {
-    bar.style.backgroundColor = basicBarColor;
-  }
+  updateBarColor();
 });
 
 swapPickr.on("change", function (color) {
   swapBarColor = color.toHEXA().toString();
   swapPickr.applyColor();
-  const bars = visualizer.children;
-
-  for (const bar of bars) {
-    if (bar.dataset.isSwapping === "true") {
-      bar.style.backgroundColor = swapBarColor;
-    }
-  }
+  updateBarColor();
 });
 
 generateBars(array, visualizer);
@@ -196,34 +197,35 @@ playButton.addEventListener("click", function () {
     playButton.innerHTML = "||";
     playButton.style.backgroundColor = "red";
     animate();
-  } else if (!isPaused) {
-    isPaused = true;
+  } else {
+    isPlaying = false;
     playButton.innerHTML = "&#9658";
     playButton.style.backgroundColor = "green";
     clearTimeout(timeout);
-  } else {
-    isPaused = false;
-    playButton.innerHTML = "||";
-    playButton.style.backgroundColor = "red";
-    animate();
   }
 });
 
-reloadButton.addEventListener("click", function () {
+function resetAnimation() {
   clearTimeout(timeout);
   isPlaying = false;
-  isPaused = false;
   currentIndex = 0;
   playButton.innerHTML = "&#9658";
   playButton.style.backgroundColor = "green";
-  array = generateRandomArray(40);
-  generateBars(array, visualizer);
+}
 
+function selectSortingType() {
   if (chooseSort.value === "bubble-sort") {
     swaps = bubbleSort([...array]);
   } else if (chooseSort.value === "insertion-sort") {
     swaps = insertionSort([...array]);
   }
+}
+
+reloadButton.addEventListener("click", function () {
+  resetAnimation();
+  array = generateRandomArray(40);
+  generateBars(array, visualizer);
+  selectSortingType();
 });
 
 muteButton.addEventListener("click", function () {
@@ -239,20 +241,8 @@ muteButton.addEventListener("click", function () {
 });
 
 chooseSort.addEventListener("change", function () {
-  clearTimeout(timeout);
-  isPlaying = false;
-  isPaused = false;
-  currentIndex = 0;
-
+  resetAnimation();
   array = generateRandomArray(40);
   generateBars(array, visualizer);
-
-  if (chooseSort.value === "bubble-sort") {
-    swaps = bubbleSort([...array]);
-  } else if (chooseSort.value === "insertion-sort") {
-    swaps = insertionSort([...array]);
-  }
-
-  playButton.innerHTML = "&#9658";
-  playButton.style.backgroundColor = "green";
+  selectSortingType();
 });

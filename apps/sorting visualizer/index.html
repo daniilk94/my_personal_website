@@ -18,37 +18,35 @@
     <div id="main-container">
       <div id="visualizer"></div>
       <div id="settings">
-        <label
-          >Speed:
-          <input
-            id="speed-bar"
-            type="range"
-            value="250"
-            min="1"
-            step="25"
-            max="500"
-          />
-        </label>
+        <label>Speed: </label>
+        <input
+          id="speed-bar"
+          type="range"
+          value="250"
+          min="1"
+          step="25"
+          max="500"
+        />
         <div id="control-div">
+          <button id="mute-button" class="button mute">
+            <i class="fas fa-volume-mute"></i>
+          </button>
           <select id="sorting-type">
             <option value="bubble-sort">Bubble Sort</option>
             <option value="insertion-sort">Insertion Sort</option>
           </select>
-          <label>
-            Main bars:
-            <button id="basic-bar-color"></button>
-          </label>
           <button id="play-button" class="button control">&#9658;</button>
           <button id="reload-button" class="button control">&#8634;</button>
-          <label
-            >Swap bars:
-            <button id="swapping-bar-color"></button>
-          </label>
-          <label>
-            <button id="mute-button" class="button mute">
-              <i class="fas fa-volume-mute"></i>
-            </button>
-          </label>
+          <div id="color-picker-div">
+            <label>
+              Main bars:
+              <button id="basic-bar-color"></button>
+            </label>
+            <label
+              >Swap bars:
+              <button id="swapping-bar-color"></button>
+            </label>
+          </div>
         </div>
       </div>
     </div>

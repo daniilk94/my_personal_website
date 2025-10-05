@@ -30,7 +30,8 @@ body {
 #settings {
   background-color: rgba(179, 160, 123, 0.82);
   width: 90%;
-  border: solid 2px;
+  max-width: 1000px;
+  border: 2px solid black;
   border-radius: 40px;
   margin-top: 20px;
   box-shadow: 10px 10px 20px rgba(39, 31, 31, 0.3);
@@ -39,7 +40,6 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  flex-wrap: wrap;
   box-sizing: border-box;
 }
 
@@ -47,7 +47,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100px;
+  font-size: 16px;
+  font-weight: bolder;
+  min-width: 100px;
+  user-select: none;
 }
 
 #sorting-type {
@@ -71,15 +74,19 @@ body {
 
 #control-div {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
 }
 
 .button {
   width: 55px;
   height: 50px;
   font-size: 32px;
+  border: 2px solid white;
+  border-radius: 20px;
   color: white;
   cursor: pointer;
 }
@@ -104,13 +111,20 @@ button:hover {
   background-color: rgb(202, 134, 7);
 }
 
+#color-picker-div {
+  display: flex;
+}
+
 .pcr-button {
-  width: 25px !important;
-  height: 60px !important;
+  margin-top: 5px;
+  width: 60px !important;
+  height: 20px !important;
   border: 2px solid rgb(255, 255, 255) !important;
   cursor: pointer;
 }
 
 #speed-bar {
-  width: 500px;
+  margin-top: 5px;
+  width: 80%;
+  max-width: 500px;
 }
