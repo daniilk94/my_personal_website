@@ -1,4 +1,4 @@
-let projectImages = document.querySelectorAll(".project-img");
+const projectImages = document.querySelectorAll(".project-img");
 const container = document.getElementById("app-container");
 const frame = document.getElementById("app-frame");
 const mainSecHeading = document.getElementById("main-section-heading");

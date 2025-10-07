@@ -1,4 +1,4 @@
-let display = document.getElementById("display");
+const display = document.getElementById("display");
 const mainContainer = document.getElementById("calculator-flex");
 const modeSelector = document.getElementById("chooseMode");
 
